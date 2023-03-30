@@ -1,0 +1,98 @@
+Flow Title=1d_hydrograph
+Program Version=6.00
+Use Restart= 0 
+Boundary Location=River           ,Reach           ,5000    ,        ,                ,                ,                ,                                
+Interval=1HOUR
+Flow Hydrograph= 241 
+  12.794  14.227   15.66  17.094  25.345  33.596  41.847  56.747  71.647  86.547
+ 104.332 122.116 139.901 156.293 172.686 189.078 201.466 213.854 226.243 233.476
+  240.71 247.943 250.103 252.264 254.424 252.605 250.787 248.969 244.004  239.04
+ 234.076 227.112 220.148 213.184 205.251 197.317 189.384 181.152 172.919 164.687
+ 156.815 148.943 141.071 133.762 126.454 119.145 112.735 106.326  99.916  94.217
+  88.518  82.818  78.137  73.456  68.774  64.814  60.854  56.894  53.719  50.545
+  47.371  44.793  42.215  39.637  37.573  35.508  33.444  31.786  30.127  28.469
+   27.23  25.991  24.753  23.759  22.764   21.77  21.017  20.263  19.509  18.971
+  18.433  17.895  17.439  16.983  16.528  16.212  15.896   15.58  15.346  15.112
+  14.878  14.664   14.45  14.236  14.109  13.982  13.855  13.762  13.668  13.575
+  13.507  13.438   13.37  13.318  13.266  13.214  13.175  13.136  13.098   13.07
+  13.041  13.013  12.993  12.972  12.952  12.937  12.922  12.907  12.897  12.886
+  12.875  12.867   12.86  12.852  12.846  12.841  12.835  12.831  12.827  12.823
+   12.82  12.818  12.815  12.813  12.811  12.809  12.807  12.806  12.804  12.803
+  12.802  12.801    12.8    12.8  12.799  12.798  12.798  12.797  12.797  12.797
+  12.796  12.796  12.796  12.795  12.795  12.795  12.795  12.795  12.795  12.795
+  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794
+  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794
+  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794
+  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794
+  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794
+  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794
+  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794
+  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794  12.794
+  12.794
+Stage Hydrograph TW Check=0
+DSS Path=
+Use DSS=False
+Use Fixed Start Time=False
+Fixed Start Date/Time=,
+Is Critical Boundary=False
+Critical Boundary Flow=
+Boundary Location=River           ,Reach           ,0       ,        ,                ,                ,                ,                                
+Friction Slope=0.0001,0
+Met Point Raster Parameters=,,,,
+Precipitation Mode=Disable
+Wind Mode=No Wind Forces
+Air Density Mode=
+Met BC=Precipitation|Expanded View=0
+Met BC=Precipitation|Point Interpolation=Nearest
+Met BC=Precipitation|Gridded Source=DSS
+Met BC=Evapotranspiration|Expanded View=0
+Met BC=Evapotranspiration|Point Interpolation=Nearest
+Met BC=Evapotranspiration|Gridded Source=DSS
+Met BC=Wind Speed|Expanded View=0
+Met BC=Wind Speed|Constant Units=m/s
+Met BC=Wind Speed|Point Interpolation=Nearest
+Met BC=Wind Speed|Gridded Source=DSS
+Met BC=Wind Direction|Expanded View=0
+Met BC=Wind Direction|Point Interpolation=Nearest
+Met BC=Wind Direction|Gridded Source=DSS
+Met BC=Wind Velocity X|Expanded View=0
+Met BC=Wind Velocity X|Constant Units=m/s
+Met BC=Wind Velocity X|Point Interpolation=Nearest
+Met BC=Wind Velocity X|Gridded Source=DSS
+Met BC=Wind Velocity Y|Expanded View=0
+Met BC=Wind Velocity Y|Constant Units=m/s
+Met BC=Wind Velocity Y|Point Interpolation=Nearest
+Met BC=Wind Velocity Y|Gridded Source=DSS
+Met BC=Air Density|Mode=Constant
+Met BC=Air Density|Expanded View=0
+Met BC=Air Density|Constant Value=1.225
+Met BC=Air Density|Point Interpolation=Nearest
+Met BC=Air Density|Gridded Source=DSS
+Met BC=Air Temperature|Expanded View=0
+Met BC=Air Temperature|Point Interpolation=Nearest
+Met BC=Air Temperature|Gridded Source=DSS
+Met BC=Humidity|Expanded View=0
+Met BC=Humidity|Point Interpolation=Nearest
+Met BC=Humidity|Gridded Source=DSS
+Met BC=Air Pressure|Expanded View=0
+Met BC=Air Pressure|Point Interpolation=Nearest
+Met BC=Air Pressure|Gridded Source=DSS
+Non-Newtonian Method= 0 , 
+Non-Newtonian Constant Vol Conc=0
+Non-Newtonian Yield Method= 0 , 
+Non-Newtonian Yield Coef=0, 0
+User Yeild=   0
+Non-Newtonian Sed Visc= 0 , 
+Non-Newtonian Obrian B=0
+User Viscosity=0
+User Viscosity Ratio=0
+Herschel-Bulkley Coef=0, 0
+Clastic Method= 0 , 
+Coulomb Phi=0
+Voellmy X=0
+Non-Newtonian Hindered FV= 0 
+Non-Newtonian FV K=0
+Non-Newtonian ds=0
+Non-Newtonian Max Cv=0
+Non-Newtonian Bulking Method= 0 , 
+Non-Newtonian High C Transport= 0 , 
