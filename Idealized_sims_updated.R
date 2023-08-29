@@ -288,7 +288,7 @@ cols <- viridis::viridis(length(Qps))
 png(file.path(base_path, "Results", "Figure 2.png"), type = "cairo", height = 3.5,
     width = 6.5, res = 500, units = "in")
 pts <- c(16, 15, 18)
-par(mfrow = c(1,3), mar = c(3, 3, 2, 0.5), oma = c(1.5, 1.5, 0, 0))
+par(mfrow = c(1,3), mar = c(3, 3, 2, 0.5), oma = c(3.5, 1.5, 0, 0))
 for (j in 1:length(slopes)){
   sub <- filter(summary, S == slopes[j], n_fp == 0.05, Area > 0)
   
@@ -309,13 +309,14 @@ for (j in 1:length(slopes)){
   }
   
   add_label(-0.05, -0.03, paste0("(", letters[j], ")"))
-  if (j == 1){
-    legend("bottomleft", legend = Qds, lty = 1:3, col = cols[1], title = "Flood Duration (Days)", bty = "n", cex = 0.8,
-           pch = 21:23, pt.bg = cols[1])
-    
-  }else if (j == 2){
-    legend("bottomleft", legend = Qps, col = cols, title = expression("Flood Magnitude (x" * Q[bf]*")"), bty = "n", cex = 0.8,
-           pch = 21, pt.bg = cols, lty = 1)
+  
+  if (j == 3){
+    #Add legend below plots
+    legend(x = -750, y = -3.3, legend = Qds, lty = 1:3, col = cols[1], title = "Flood Duration (Days)", bty = "n", cex = 1,
+           pch = 21:23, pt.bg = cols[1], ncol = 3, xpd = NA, x.intersp = 0.5)
+    # 
+    legend(x = -300, y = -3.3, legend = Qps, col = cols, title = expression("Flood Peak (x" * Q[bf]*")"), bty = "n", cex = 1,
+           pch = 21, pt.bg = cols, lty = 1, ncol = 3, xpd = NA, x.intersp = 0.5)
   }
   
   #Add subplot
@@ -343,8 +344,10 @@ for (j in 1:length(slopes)){
   }
 
 }
+
+
 mtext("Mean WSE Change in Setback [m]", side = 2, outer = TRUE, line = 0)
-mtext(expression("Reconnected Floodplain Area ["*km^2*"] / Levee Top Width [km]"), side = 1, outer = TRUE, line = 0.5)
+mtext(expression("Reconnected Floodplain Area ["*km^2*"] / Levee Top Width [km]"), side = 1, outer = TRUE, line = 0)
 dev.off()
 
 ############################
@@ -353,18 +356,20 @@ cols <- viridis::viridis(length(Qps))
 pts <- c(16, 15, 18)
 png(file.path(base_path, "Results", "Figure 3.png"), type = "cairo", height = 3.5,
     width = 6.5, res = 500, units = "in")
-par(mfrow = c(1,3), mar = c(3, 3, 2, 0.5), oma = c(1.5, 1.5, 0, 0))
+par(mfrow = c(1,3), mar = c(3, 3, 2, 0.5), oma = c(3.5, 1.5, 0, 0))
 for (i in 1:length(slopes)){
   sub <- filter(summary, S == slopes[i], n_fp == 0.05)
   par(fig = c(1/3 * (i - 1), 1/3 * i, 0, 1), new = TRUE, mar = c(3, 3, 2, 0.5))
   plot(NA, xlim = c(0, max(summary$Area / (summary$TW * 3 / 1000))), ylim = range(summary$DS_diff[summary$n_fp == 0.05]), xlab = "", ylab = "",
        las = 1, main = paste("Slope =", slopes[i]))
   if (i == 3){
-    legend("topright", legend = Qds, lwd = 1, lty = 1:3, pch = pts, cex = 0.8, col = cols[1], bty = "n", title = "Flood Length\n(days)",
-           inset = c(0, 0.55))
-    legend("bottomright", legend = Qps, lwd = 1, col = cols, bty = "n", pch = pts[1], cex = 0.8)
-    text(330, -1.05, "Flood Peak", cex = 0.8)
-    text(330, -1.11, expression("(x"*Q[bf]*")"), cex = 0.8)
+    
+    #Add legend below plots
+    legend(x = -750, y = -1.64, legend = Qds, lty = 1:3, col = cols[1], title = "Flood Duration (Days)", bty = "n", cex = 1,
+           pch = 21:23, pt.bg = cols[1], ncol = 3, xpd = NA, x.intersp = 0.5)
+    # 
+    legend(x = -300, y = -1.64, legend = Qps, col = cols, title = expression("Flood Peak (x" * Q[bf]*")"), bty = "n", cex = 1,
+           pch = 21, pt.bg = cols, lty = 1, ncol = 3, xpd = NA, x.intersp = 0.5)
   }
   for (k in 1:length(Qds)){
     for(l in 1:length(Qps)){
@@ -409,7 +414,7 @@ for (i in 1:length(slopes)){
   
 }
 mtext("WSE Change Downstream [m]", side = 2, outer = TRUE, line = 0)
-mtext(expression("Reconnected Floodplain Area ["*km^2*"] / Levee Top Width [km]"), side = 1, outer = TRUE, line = 0.5)
+mtext(expression("Reconnected Floodplain Area ["*km^2*"] / Levee Top Width [km]"), side = 1, outer = TRUE, line = 0)
 dev.off()
 
 ###############################
@@ -418,7 +423,7 @@ cols <- viridis::viridis(length(Qps))
 pts <- c(16, 15, 18)
 png(file.path(base_path, "Results", "Figure 4.png"), type = "cairo", height = 3.5,
     width = 6.5, res = 500, units = "in")
-par(mfrow = c(1,3), mar = c(3, 3, 2, 0.5), oma = c(1.5, 1.5, 0, 0))
+par(mfrow = c(1,3), mar = c(3, 3, 2, 0.5), oma = c(3.5, 1.5, 0, 0))
 for (i in 1:length(slopes)){
   sub <- filter(summary, S == slopes[i], n_fp == 0.05)
   par(fig = c(1/3 * (i - 1), 1/3 * i, 0, 1), new = TRUE, mar = c(3, 3, 2, 0.5))
@@ -426,10 +431,14 @@ for (i in 1:length(slopes)){
        las = 1, main = paste("Slope =", slopes[i]), yaxt = "n")
   axis(side = 2, at = seq(0, 50000, 10000), labels = seq(0, 50, 10), las = 1)
   if (i == 3){
-    legend("left", legend = Qds, lty = 1:3, pch = pts, col = cols[1], bty = "n", title = "Flood Length\n(days)", cex = 0.8)
-    legend("right", legend = Qps, col = cols, lty = 1, pch = pts[1], bty = "n", cex = 0.8, title = "\n")
-    text(330, 32000, "Flood Peak", cex = 0.8)
-    text(330, 30000, expression("(x"*Q[bf]*")"), cex = 0.8)
+    
+    #Add legend below plots
+    legend(x = -750, y = -14000, legend = Qds, lty = 1:3, col = cols[1], title = "Flood Duration (Days)", bty = "n", cex = 1,
+           pch = 21:23, pt.bg = cols[1], ncol = 3, xpd = NA, x.intersp = 0.5)
+    # 
+    legend(x = -300, y = -14000, legend = Qps, col = cols, title = expression("Flood Peak (x" * Q[bf]*")"), bty = "n", cex = 1,
+           pch = 21, pt.bg = cols, lty = 1, ncol = 3, xpd = NA, x.intersp = 0.5)  
+    
   }
   for (k in 1:length(Qds)){
     for(l in 1:length(Qps)){
@@ -491,7 +500,7 @@ for (i in 1:length(slopes)){
   
 }
 mtext("Distance US with Lower WSE [km]", side = 2, outer = TRUE, line = 0)
-mtext(expression("Reconnected Floodplain Area ["*km^2*"] / Levee Top Width [km]"), side = 1, outer = TRUE, line = 0.5)
+mtext(expression("Reconnected Floodplain Area ["*km^2*"] / Levee Top Width [km]"), side = 1, outer = TRUE, line = 0)
 dev.off()
 
 #############################

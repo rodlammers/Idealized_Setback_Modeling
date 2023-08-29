@@ -225,15 +225,15 @@ summary <- readRDS(summary_file) %>%
     # 
     # write.csv(y25, "Runs/Results/Wabash_summary.csv", row.names = F)
     # 
-    # summary_low <- filter(summary, S == 1e-4)
-    # summary_high <- filter(summary, S == 3e-4)
+summary_low <- filter(summary, S == 1e-4)
+summary_high <- filter(summary, S == 3e-4)
 
 #Gets wabash summary results
 wabash_summary <- read.csv("Runs/Wabash/Wabash_summary.csv")
 
 png("Runs/Results/Figure 6.png", type = "cairo", height = 3.5,
     width = 6.5, res = 500, units = "in")
-par(mfrow = c(1,3), mar = c(3, 4.1, 2, 0.5), oma = c(1.5, 0, 0, 0))
+par(mfrow = c(1,3), mar = c(3, 4.1, 2, 0.5), oma = c(3.5, 0, 0, 0))
 cols <- RColorBrewer::brewer.pal(3, "Set1")
 palette(cols)
 
@@ -259,12 +259,6 @@ points(25, -0.5, pch = 16, cex = 0.9, col = "gray60")
 text(x = 50, y = -.5, "Idealized Results", pos = 4)
 
 add_label(-0.05, -0.03, "(a)")
-
-legend("bottomleft", legend = c("1e-4", "3e-4"), lty = 1:2, lwd = 2,
-       title = "Idealized Slope", pch = c(NA, NA),
-       bty = "n", text.col = "white")
-legend("bottomleft", legend = c("1e-4", "3e-4"), pch = c(16, 18), col = "gray60", bty = "n",
-       lwd = 1, lty = c(0, 0), title = "Idealized Slope")
 
 #In setback
 plot(mean_setback ~ rel_area, wabash_summary, pch = 21, bg = as.factor(Run), las = 1, 
@@ -303,10 +297,18 @@ points(I(dist_US / 1000) ~ rel_area, wabash_summary, pch = 21, bg = as.factor(Ru
 
 add_label(-0.05, -0.03, "(c)")
 
-legend("bottomright", legend = c("US", "DS"), pch = 21, pt.bg = cols, title = "Wabash Setback Loc.",
-       bty = "n")
+#Add legends
+legend(x = -90, y = -11, legend = c("1e-4", "3e-4"), lty = 1:2, lwd = 2,
+       title = "Idealized Slope", pch = c(NA, NA),
+       bty = "n", text.col = "white", horiz = T, xpd = NA, x.intersp = 0.5)
+legend(x = -90, y = -11, legend = c("1e-4", "3e-4"), pch = c(16, 18), col = "gray60", bty = "n",
+       lwd = 1, lty = c(0, 0), title = "Idealized Slope", horiz = T, xpd = NA, x.intersp = 0.5)
 
-mtext(expression("Reconnected Floodplain Area ["*km^2*"] / Levee Top Width [km]"), side = 1, outer = TRUE, line = 0.5)
+legend(x = -50, y = -11, legend = c("Upstream", "Downstream"), pch = 21, pt.bg = cols, title = "Wabash Setback Location",
+       bty = "n", horiz = T, xpd = NA, x.intersp = 0.5)
+
+
+mtext(expression("Reconnected Floodplain Area ["*km^2*"] / Levee Top Width [km]"), side = 1, outer = TRUE, line = 0)
 dev.off()
 
 ################################################################################
